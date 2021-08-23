@@ -14,12 +14,12 @@ namespace WeekOpdrachtDependencyInjection.Business
             new Movie { Id = 3, Title = "Kill Bill", ReleaseDate = new DateTime(2003,1,1)},
         };
 
-        public Movie Get(int id)
+        public virtual Movie Get(int id)
         {
             return Movies.Single(x=>x.Id == id);
         }
 
-        public Movie Get(string id)
+        public virtual Movie Get(string id)
         {
             return Movies.Single(a => a.Title == id);
         }

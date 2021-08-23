@@ -13,7 +13,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WeekOpdrachtDependencyInjection.Business;
+using WeekOpdrachtDependencyInjection.Business.Factories;
 using WeekOpdrachtDependencyInjection.Business.Interfaces;
+using WeekOpdrachtDependencyInjection.Business.Strategy;
 using WeekOpdrachtDependencyInjection.DataBase;
 using WeekOpdrachtDependencyInjection.Repositories;
 
@@ -37,13 +39,15 @@ namespace WeekOpdrachtDependencyInjection
             services.AddDbContext<MoviesDataBase>(options =>
             options.UseSqlServer(
             Configuration.GetConnectionString("DefaultConnection")));
-            services.AddTransient<ICalculatePiService, CalculatePiService>();
+            services.AddTransient<ICalculateAddingService, CalculatePiService>();
             services.AddTransient<IMovieRepository, MovieRepository>();
-
-
+            services.AddTransient<IPoultryFactory<IDuckDTO>,PoultryFactory<IDuckDTO>>();
+            services.AddTransient<IPoultryFactory<IGooseDTO>, PoultryFactory<IGooseDTO>>();
+            services.AddTransient<IPoultryFactory<IChickenDTO>, PoultryFactory<IChickenDTO>>();
+            services.AddTransient<IPiStrategy, PiStrategy>();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WeekOpdrachtDependencyInjection", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WeekOpdrachtDependencyInjection", Version = "v1" }); c.EnableAnnotations();
             });
         }
 

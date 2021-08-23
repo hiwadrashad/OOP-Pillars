@@ -3,7 +3,7 @@ using WeekOpdrachtDependencyInjection.Business.Interfaces;
 
 namespace WeekOpdrachtDependencyInjection.Business
 {
-    public class CalculatePiService : ICalculatePiService
+    public class CalculatePiService : ICalculateAddingService
     {
         public double Add(int number)
         {

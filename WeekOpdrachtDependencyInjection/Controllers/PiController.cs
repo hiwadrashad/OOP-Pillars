@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
+using System.Net;
 using WeekOpdrachtDependencyInjection.Business;
 using WeekOpdrachtDependencyInjection.Business.Interfaces;
 
@@ -8,23 +10,23 @@ namespace WeekOpdrachtDependencyInjection.Controllers
     [ApiController]
     public class PiController : ControllerBase
     {
-        private readonly string a;
-        private readonly ICalculatePiService _calculatePiService;
-
-        public PiController( ICalculatePiService calculatePiService)
+        private readonly IPiStrategy _PiService;
+        private readonly ICalculateAddingService _calculateAddingService;
+        public PiController( IPiStrategy PiService, ICalculateAddingService calculateAddingService)
         {
-            _calculatePiService = calculatePiService;
+            _PiService = PiService;
+            _calculateAddingService = calculateAddingService;
         }
 
         [HttpGet]
         [Route("add/{number}")]
         public IActionResult Add(int number)
         {
-            var calculatePiService = new CalculatePiService();
 
+            _PiService.SetStrategy(_calculateAddingService);
             return Ok(new
             {
-                result = (_calculatePiService.Add(number))
+                result = (_PiService.Add(number))
             });
         }
 
@@ -32,11 +34,25 @@ namespace WeekOpdrachtDependencyInjection.Controllers
         [Route("minus/{number}")]
         public IActionResult Minus(int number)
         {
-            //return Ok(new
-            //{
-            //    result = (_calculatePiService.Minus(number))
-            //});
-            return Ok();
+            _PiService.SetStrategy(_calculateAddingService);
+            return Ok(new
+            {
+                result = (_PiService.Substract(number))
+            });
+        }
+
+
+        [HttpGet]
+        [SwaggerResponse((int)HttpStatusCode.OK,"Swagger does not show tuples")]
+        [Route("AddAndSubstract/{number}")]
+        public IActionResult AddAndSubstract(int number)
+        {
+            _PiService.SetStrategy(_calculateAddingService);
+            return Ok(new
+            {
+                result = (_PiService.AddAndSubstractRespectivaly((a) => _PiService.Add((int)a), (a) => _PiService.Substract((int)a), number))
+
+            });
         }
     }
 }

@@ -19,21 +19,49 @@ namespace WeekOpdrachtDependencyInjection.Controllers
         }
         public IActionResult FormPage()
         {
-            Movie DTO = new Movie();
-            return View(DTO);
+            try
+            {
+                Movie DTO = new Movie();
+                return View(DTO);
+            }
+#pragma warning disable CS0168 // Variable is declared but never used
+            catch (Exception ex)
+#pragma warning restore CS0168 // Variable is declared but never used
+            {
+                Movie DTO = new Movie();
+                return View(DTO);
+            }
         }
 
         [HttpPost]
         public IActionResult FormPage(Movie DTO)
         {
-            _movieRepository.Add(DTO);
-            return RedirectToAction("SucessPage");
+            try
+            {
+                _movieRepository.Add(DTO);
+                return RedirectToAction("SucessPage");
+            }
+#pragma warning disable CS0168 // Variable is declared but never used
+            catch (Exception ex)
+#pragma warning restore CS0168 // Variable is declared but never used
+            {
+                return RedirectToAction("FormPage");
+            }
         }
 
 
         public IActionResult SucessPage()
         {
-            return View();
+            try
+            {
+                return View();
+            }
+#pragma warning disable CS0168 // Variable is declared but never used
+            catch (Exception ex)
+#pragma warning restore CS0168 // Variable is declared but never used
+            {
+                return RedirectToAction("FormPage");
+            }
         }
 
         // GET: MoviePageController/Details/5

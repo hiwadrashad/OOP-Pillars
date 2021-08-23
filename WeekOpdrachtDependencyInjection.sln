@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeekOpdrachtDependencyInjec
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeekOpdrachtDependencyInjection.Business", "WeekOpdrachtDependencyInjection.Business\WeekOpdrachtDependencyInjection.Business.csproj", "{010F513E-6B6A-4DF5-8BB8-E0D2CF9E6360}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeekOpdrachtDependencyInjection-XUnit", "WeekOpdrachtDependencyInjection-XUnit\WeekOpdrachtDependencyInjection-XUnit.csproj", "{1472D7E4-76CD-4F46-83BD-B1859CDC27E2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeekOpdrachtDependencyInjection-XUnit", "WeekOpdrachtDependencyInjection-XUnit\WeekOpdrachtDependencyInjection-XUnit.csproj", "{B75E8E49-08A8-454D-A69B-A781AFE21105}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{010F513E-6B6A-4DF5-8BB8-E0D2CF9E6360}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{010F513E-6B6A-4DF5-8BB8-E0D2CF9E6360}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{010F513E-6B6A-4DF5-8BB8-E0D2CF9E6360}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1472D7E4-76CD-4F46-83BD-B1859CDC27E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1472D7E4-76CD-4F46-83BD-B1859CDC27E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1472D7E4-76CD-4F46-83BD-B1859CDC27E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1472D7E4-76CD-4F46-83BD-B1859CDC27E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B75E8E49-08A8-454D-A69B-A781AFE21105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B75E8E49-08A8-454D-A69B-A781AFE21105}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B75E8E49-08A8-454D-A69B-A781AFE21105}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B75E8E49-08A8-454D-A69B-A781AFE21105}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
